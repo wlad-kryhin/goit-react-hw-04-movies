@@ -1,13 +1,14 @@
 import "./App.css";
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import Container from "./components/Container/Container";
 import Navigation from "./components/Navigation/Navigation";
 import Home from "./views/Home";
 import Movies from "./views/Movies";
 import MovieDetails from "./views/MovieDetails";
 function App() {
   return (
-    <div className="container">
+    <Container>
       <Navigation />
       <Switch>
         <Route exact path="/">
@@ -24,7 +25,7 @@ function App() {
 
         <Redirect to="/" />
       </Switch>
-    </div>
+    </Container>
   );
 }
 

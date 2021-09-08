@@ -11,11 +11,14 @@ export default function Cast() {
   return (
     <div>
       {cast && (
-        <ul>
+        <ul className="home__list cast-list">
           {cast.map((item) => {
             return (
-              <li key={item.id}>
+              <li key={item.id} className="home__list_item list-cast">
+                <p className="home__list_text color">{item.name}</p>
+                <p className="home__list_text color">{item.character}</p>
                 <img
+                  className="home__list_img list-cast_img"
                   src={`https://image.tmdb.org/t/p/w342/${item.profile_path}`}
                   alt=""
                 />

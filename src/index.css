@@ -1,0 +1,152 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* HOME PAGE */
+.home__list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: -10px;
+}
+.home__list_item {
+  width: calc((100% - 7 * 20px) / 7);
+  margin: 10px;
+}
+.home__list_img {
+  width: 100%;
+}
+.home__list_text {
+  color: aliceblue;
+}
+.home__list_link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.home__list_link:hover {
+  width: 105%;
+}
+
+/* FORM */
+.form {
+  margin-left: 300px;
+  width: 500px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  margin-bottom: 50px;
+}
+.form__label {
+  display: flex;
+  color: blue;
+}
+.form__input {
+  margin: 0 10px;
+  background-color: transparent;
+  width: 200px;
+  border: 1px solid rgba(155, 155, 100, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 10px;
+  outline: rgba(155, 155, 100, 0.5);
+}
+.form__button {
+  width: 80px;
+  background-color: red;
+  color: aliceblue;
+  border-radius: 20px;
+  border-color: transparent;
+  height: 100%;
+}
+
+/* MOVIE DETAILS */
+.movie__container {
+  display: flex;
+  color: #fff;
+  margin-top: 20px;
+}
+.movie__text_container {
+  padding-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.movie__title {
+  font-size: 30px;
+  margin-bottom: 50px;
+  color: blue;
+}
+.movie__desc {
+  display: flex;
+  flex-direction: column;
+  color: blue;
+  margin-bottom: 40px;
+}
+.movie__img {
+  height: 440px;
+}
+.movie__overviews_info {
+  color: #fff;
+  max-width: 350px;
+}
+.movie__like {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Additional info */
+.Addit_info {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.add_title {
+  color: grey;
+  font-size: 22px;
+}
+.add_link {
+  margin-bottom: 10px;
+  color: blue;
+}
+
+.active_link {
+  color: red;
+}

@@ -1,0 +1,21 @@
+.nav {
+  width: 100%;
+  padding: 20px 100px;
+}
+.nav__list {
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  border-bottom: 1px solid rgba(160, 155, 155, 0.2);
+}
+.nav__list_item:not(:last-child) {
+  margin-right: 70px;
+}
+.link {
+  color: blue;
+}
+.active_link {
+  color: red;
+}

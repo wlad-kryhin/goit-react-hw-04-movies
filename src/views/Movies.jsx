@@ -15,7 +15,12 @@ export default function Movies() {
 
   useEffect(() => {
     FetchMovies(value, setFilms);
-  }, [value]);
+    const url = new URLSearchParams(location.search).get("query");
+    if (films || url === null) {
+      return;
+    }
+    setValue(url);
+  }, [value, films, location]);
 
   return (
     <>

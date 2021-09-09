@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import FilmItem from "../components/FilmItem/FilmItem";
 import { FetchPopularFilms } from "../services/FetchApi";
 
 export default function Home() {
+  const location = useLocation();
   const [movies, setMovies] = useState(null);
   useEffect(() => {
     FetchPopularFilms(setMovies);
@@ -13,18 +15,7 @@ export default function Home() {
       {movies && (
         <ul className="home__list">
           {movies.map((movie) => {
-            return (
-              <li key={movie.id} className="home__list_item">
-                <Link className="home__list_link" to={`/movies/${movie.id}`}>
-                  <img
-                    className="home__list_img"
-                    src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`}
-                    alt=""
-                  />
-                  <p className="home__list_text">{movie.title}</p>
-                </Link>
-              </li>
-            );
+            return <FilmItem value={movie} location={location} />;
           })}
         </ul>
       )}

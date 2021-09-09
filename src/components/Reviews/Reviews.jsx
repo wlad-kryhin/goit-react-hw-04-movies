@@ -8,7 +8,7 @@ export default function Reviews() {
   useEffect(() => {
     FetchMovieReviews(movieId, setReview);
   }, [movieId]);
-  console.log(review);
+
   return (
     <div>
       {review.length > 0 ? (

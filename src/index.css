@@ -186,3 +186,7 @@ a {
 .color {
   color: grey;
 }
+.button {
+  width: 120px;
+  height: 40px;
+}

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
+
 export default function Form({ onSubmit }) {
   const [query, setQuery] = useState("");
   const handleInputChange = (e) => {
@@ -6,6 +9,9 @@ export default function Form({ onSubmit }) {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    if (!query.trim()) {
+      return alert("write smth other");
+    }
     onSubmit(query);
     e.target.reset();
     setQuery("");
@@ -29,3 +35,6 @@ export default function Form({ onSubmit }) {
     </form>
   );
 }
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+};

@@ -1,10 +1,22 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useParams } from "react-router";
-import { NavLink, useRouteMatch, Route } from "react-router-dom";
+import {
+  useRouteMatch,
+  Route,
+  useLocation,
+  useHistory,
+} from "react-router-dom";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { FetchFilmsById } from "../services/FetchApi";
-import Cast from "../components/Cast/Cast";
-import Reviews from "../components/Reviews/Reviews";
+import MovieDetailsInfo from "../components/MovieDetailsInfo/MovieDetailsInfo";
+import AdditionalInfo from "../components/AdditionalInfo/AdditionalInfo";
+const Cast = React.lazy(() => import("../components/Cast/Cast"));
+const Reviews = React.lazy(() => import("../components/Reviews/Reviews"));
+
 export default function MovieDetails() {
+  const history = useHistory();
+  const location = useLocation();
   const { url } = useRouteMatch();
   const [filmsInfo, setFilmsInfo] = useState(null);
   const { movieId } = useParams();
@@ -13,65 +25,26 @@ export default function MovieDetails() {
     FetchFilmsById(movieId, setFilmsInfo);
   }, [movieId]);
 
+  const goBack = () => {
+    history.push(location?.state?.from ?? "/");
+  };
+
   return (
     <>
       {filmsInfo && (
-        <div className="movie__container">
-          <img
-            className="movie__img"
-            src={`https://image.tmdb.org/t/p/w342/${filmsInfo.poster_path}`}
-            alt={filmsInfo.title}
-          />
-          <div className="movie__text_container">
-            <h3 className="movie__title">{filmsInfo.original_title}</h3>
-            <p className="movie__desc">
-              Overview:
-              <span className="movie__overviews_info">
-                {filmsInfo.overview}
-              </span>
-            </p>
-            <p className="movie__desc">
-              Genres:
-              <span className="movie__overviews_info">
-                {filmsInfo.genres.map((genre) => genre.name).join(", ")}
-              </span>
-            </p>
-            <p className="movie__like">
-              Release Date : {filmsInfo.release_date}
-            </p>
-            <p className="movie__like">Average : {filmsInfo.vote_average}</p>
-          </div>
-        </div>
+        <>
+          <MovieDetailsInfo value={filmsInfo} goBack={goBack} />
+        </>
       )}
-      <div className="Addit_info">
-        <h4 className="add_title">Additional information</h4>
-        <ul>
-          <li className="add_link">
-            <NavLink
-              to={`${url}/cast`}
-              className="add_link"
-              activeClassName="active_link"
-            >
-              Cast
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={`${url}/reviews`}
-              className="add_link"
-              activeClassName="active_link"
-            >
-              Reviews
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-      <Route path="/movies/:movieId/cast">
-        <Cast />
-      </Route>
-      <Route path="/movies/:movieId/reviews">
-        <Reviews />
-      </Route>
+      <AdditionalInfo url={url} location={location} />
+      <Suspense fallback={<Loader />}>
+        <Route path="/movies/:movieId/cast">
+          <Cast />
+        </Route>
+        <Route path="/movies/:movieId/reviews">
+          <Reviews />
+        </Route>
+      </Suspense>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import FilmItem from "../components/FilmItem/FilmItem";
+import FilmList from "../components/FilmList/FilmList";
 import { FetchPopularFilms } from "../services/FetchApi";
 
 export default function Home() {
@@ -10,15 +10,5 @@ export default function Home() {
     FetchPopularFilms(setMovies);
   }, []);
 
-  return (
-    <>
-      {movies && (
-        <ul className="home__list">
-          {movies.map((movie) => {
-            return <FilmItem value={movie} location={location} />;
-          })}
-        </ul>
-      )}
-    </>
-  );
+  return <>{movies && <FilmList list={movies} location={location} />}</>;
 }

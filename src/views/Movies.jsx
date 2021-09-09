@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation, useHistory } from "react-router-dom";
-import FilmItem from "../components/FilmItem/FilmItem";
+import FilmList from "../components/FilmList/FilmList";
 import Form from "../components/Form/Form";
 import { FetchMovies } from "../services/FetchApi";
 
@@ -20,19 +20,11 @@ export default function Movies() {
     if (value === "" && url === null) return;
     FetchMovies(url, setFilms);
   }, [value, url]);
-  console.log(location);
-  console.log(films);
 
   return (
     <>
       <Form onSubmit={getValueFromForm} />
-      {films && (
-        <ul className="home__list">
-          {films.map((film) => {
-            return <FilmItem value={film} location={location} />;
-          })}
-        </ul>
-      )}
+      {films && <FilmList list={films} location={location} />}
     </>
   );
 }

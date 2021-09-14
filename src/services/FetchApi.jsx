@@ -1,10 +1,11 @@
 import axios from "axios";
 
 const KEY = "84867915c8b3aadc91d5efa8c22e1ab6";
-const BASE_URL = "https://api.themoviedb.org/3/trending/movie/day?api_key=";
+const BASE_URL = "https://api.themoviedb.org/3/";
 
 export function FetchPopularFilms(callback) {
-  const url = `${BASE_URL}${KEY}`;
+  const params = `trending/movie/day?api_key=${KEY}`;
+  const url = BASE_URL + params;
   axios
     .get(url)
     .then((resp) => resp.data.results)
@@ -13,7 +14,8 @@ export function FetchPopularFilms(callback) {
 }
 
 export function FetchMovies(query, callback) {
-  const url = `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
+  const params = `search/movie?api_key=${KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
+  const url = BASE_URL + params;
   axios
     .get(url)
     .then((response) => {
@@ -27,8 +29,8 @@ export function FetchMovies(query, callback) {
 }
 
 export function FetchFilmsById(id, callback) {
-  const url = `
-  https://api.themoviedb.org/3/movie/${id}?api_key=${KEY}&language=en-US`;
+  const params = `movie/${id}?api_key=${KEY}&language=en-US`;
+  const url = BASE_URL + params;
   axios
     .get(url)
     .then((response) => response.data)
@@ -37,8 +39,8 @@ export function FetchFilmsById(id, callback) {
 }
 
 export function FetchMovieCredits(id, callback) {
-  const url = `
-  https://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEY}&language=en-US`;
+  const params = `movie/${id}/credits?api_key=${KEY}&language=en-US`;
+  const url = BASE_URL + params;
   axios
     .get(url)
     .then((response) => response.data.cast)
@@ -46,8 +48,8 @@ export function FetchMovieCredits(id, callback) {
     .catch((error) => error.message);
 }
 export function FetchMovieReviews(id, callback) {
-  const url = `
-  https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${KEY}&language=en-US&page=1`;
+  const params = `movie/${id}/reviews?api_key=${KEY}&language=en-US&page=1`;
+  const url = BASE_URL + params;
   axios
     .get(url)
     .then((response) => response.data.results)

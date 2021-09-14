@@ -27,6 +27,6 @@ export default function FilmList({ list, location }) {
   );
 }
 FilmList.propTypes = {
-  value: PropTypes.object,
+  list: PropTypes.object,
   location: PropTypes.object,
 };

@@ -28,6 +28,7 @@ export default function MovieDetails() {
   const goBack = () => {
     history.push(location?.state?.from ?? "/");
   };
+  console.log(url);
 
   return (
     <>

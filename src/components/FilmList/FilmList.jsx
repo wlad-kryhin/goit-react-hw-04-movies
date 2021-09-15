@@ -13,11 +13,20 @@ export default function FilmList({ list, location }) {
                 state: { from: location },
               }}
             >
-              <img
-                className="home__list_img"
-                src={`https://image.tmdb.org/t/p/w342/${value.poster_path}`}
-                alt=""
-              />
+              {value.poster_path ? (
+                <img
+                  className="home__list_img"
+                  src={`https://image.tmdb.org/t/p/w342/${value.poster_path}`}
+                  alt=""
+                />
+              ) : (
+                <img
+                  className="home__list_img"
+                  src="https://st.depositphotos.com/1653909/4590/i/950/depositphotos_45905257-stock-photo-movie-clapper.jpg"
+                  alt={value.title}
+                />
+              )}
+
               <p className="home__list_text">{value.title}</p>
             </Link>
           </li>

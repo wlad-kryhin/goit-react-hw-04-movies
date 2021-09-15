@@ -1,5 +1,11 @@
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 export default function MovieDetailsInfo({ value, goBack }) {
+  // const [click, setClick] = useState(true);
+  // const handleClickAdd = () => {
+  //   setClick(!click);
+  //   localStorage.setItem("films", JSON.stringify([{ ...value }]));
+  // };
   return (
     <>
       <button type="button" onClick={goBack} className="form__button button">
@@ -23,8 +29,21 @@ export default function MovieDetailsInfo({ value, goBack }) {
               {value.genres.map((genre) => genre.name).join(", ")}
             </span>
           </p>
-          <p className="movie__like">Release Date : {value.release_date}</p>
-          <p className="movie__like">Average : {value.vote_average}</p>
+          <p className="movie__like">
+            Release Date :
+            <span className="movie__like_span"> {value.release_date} </span>
+          </p>
+          <p className="movie__like">
+            Average :
+            <span className="movie__like_span"> {value.vote_average} </span>
+          </p>
+          {/* <button
+            type="button"
+            className="form__button button"
+            onClick={handleClickAdd}
+          >
+            {click ? "Add to Library" : "Remove from Library"}
+          </button> */}
         </div>
       </div>
     </>

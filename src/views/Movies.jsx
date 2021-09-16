@@ -15,10 +15,9 @@ export default function Movies() {
     history.push({ ...location, search: `query=${query}` });
     setValue(query);
   };
-
   useEffect(() => {
     if (value === "" && url === null) return;
-    FetchMovies(url, setFilms);
+    FetchMovies(value, setFilms);
   }, [value, url]);
 
   return (

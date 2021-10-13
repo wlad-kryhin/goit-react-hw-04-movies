@@ -20,6 +20,10 @@ export default function MovieDetails() {
   const { url } = useRouteMatch();
   const [filmsInfo, setFilmsInfo] = useState(null);
   const { movieId } = useParams();
+  console.log(history);
+  console.log(location);
+  console.log(useParams());
+  console.log(useRouteMatch());
 
   useEffect(() => {
     FetchFilmsById(movieId, setFilmsInfo);
@@ -28,7 +32,6 @@ export default function MovieDetails() {
   const goBack = () => {
     history.push(location?.state?.from ?? "/");
   };
-  console.log(url);
 
   return (
     <>

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 export default function MovieDetailsInfo({ value, goBack }) {
   // const [click, setClick] = useState(true);
   // const handleClickAdd = () => {

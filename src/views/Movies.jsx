@@ -3,6 +3,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import FilmList from "../components/FilmList/FilmList";
 import Form from "../components/Form/Form";
 import { FetchMovies } from "../services/FetchApi";
+// import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Movies() {
   const location = useLocation();

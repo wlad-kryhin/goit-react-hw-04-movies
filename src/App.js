@@ -5,6 +5,8 @@ import Container from "./components/Container/Container";
 import Navigation from "./components/Navigation/Navigation";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Registration from "./views/Registration";
+import Login from "./views/Login";
 // import Home from "./views/Home";
 // import Movies from "./views/Movies";
 // import MovieDetails from "./views/MovieDetails";
@@ -27,6 +29,12 @@ function App() {
 
           <Route exact path="/movies">
             <Movies />
+          </Route>
+          <Route exact path="/registration">
+            <Registration />
+          </Route>
+          <Route exact path="/login">
+            <Login />
           </Route>
 
           <Route path="/movies/:movieId">

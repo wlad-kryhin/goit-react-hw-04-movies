@@ -145,14 +145,18 @@ a {
 
 /* FORM */
 .form {
-  max-width: 500px;
   height: 30px;
   display: flex;
-  margin: 0 auto;
+  // margin: 0 auto;
   align-items: center;
   justify-content: center;
   justify-content: flex-start;
   margin-bottom: 50px;
+  // flex-direction: column;
+  @media screen and (min-width: 600px) {
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }
 .form__label {
   display: flex;
@@ -161,7 +165,7 @@ a {
 .form__input {
   margin: 0 10px;
   background-color: transparent;
-  width: 200px;
+  max-width: 200px;
   border: 1px solid rgba(155, 155, 100, 0.5);
   color: #fff;
   padding: 5px 10px;
@@ -180,14 +184,21 @@ a {
 /* MOVIE DETAILS */
 .movie__container {
   display: flex;
+  flex-direction: column;
   color: #fff;
   margin-top: 20px;
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+  }
 }
 .movie__text_container {
-  padding-left: 50px;
+  padding-left: 15px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
+  @media screen and (min-width: 600px) {
+    padding-left: 50px;
+  }
 }
 .movie__title {
   font-size: 30px;
@@ -202,8 +213,10 @@ a {
 }
 .movie__img {
   height: 250px;
+  max-width: 220px;
   @media screen and (min-width: 600px) {
     height: 440px;
+    max-width: 300px;
   }
 }
 .movie__overviews_info {
@@ -232,6 +245,62 @@ a {
 .add_link {
   margin-bottom: 10px;
   color: rgb(66, 169, 238);
+}
+.container {
+  & .form-container {
+    align-items: center;
+  }
+}
+.form-container {
+  padding: 100px 0;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-title {
+  color: red;
+  font-size: 22px;
+  margin-bottom: 24px;
+}
+.form-desc {
+  margin-top: 10px;
+  max-width: 220px;
+  color: rgb(66, 169, 238);
+}
+.link-registration {
+  font-size: 18px;
+  margin-left: 10px;
+  color: blue;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  color: blue;
+}
+.input {
+  margin-top: 5px;
+  background-color: transparent;
+  border: 1px solid rgb(90, 164, 214);
+  border-radius: 5px;
+  padding: 5px;
+  width: 220px;
+}
+.input::placeholder {
+  color: wheat;
+}
+.button {
+  border-radius: 10px;
+  padding: 5px 10px;
+  border-color: transparent;
+  background-color: red;
+}
+.button:hover,
+.button:focus {
+  background-color: rgb(66, 169, 238);
+  color: whitesmoke;
 }
 
 .active_link {

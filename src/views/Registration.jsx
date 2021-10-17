@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Registration() {
+export default function Registration({ callback }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,6 +25,8 @@ export default function Registration() {
     if (password !== repPassword) {
       return alert("Password not correct");
     }
+
+    callback({ name, email, password });
     // dispatch(register({ name, email, password }));
     e.target.reset();
     setName("");

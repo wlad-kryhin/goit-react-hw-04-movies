@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navigation.module.css";
 import AuthNav from "./AuthNav";
-export default function Navigation() {
+import UserMenu from "./UserMenu";
+export default function Navigation({ userName, logged, logout }) {
   return (
     <nav className={s.nav}>
       <ul className={s.nav__list}>
@@ -25,7 +26,7 @@ export default function Navigation() {
           </NavLink>
         </li>
       </ul>
-      <AuthNav />
+      {logged ? <UserMenu userName={userName} logout={logout} /> : <AuthNav />}
     </nav>
   );
 }

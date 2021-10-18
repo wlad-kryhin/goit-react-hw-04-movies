@@ -29,3 +29,18 @@
 .auth__item {
   margin-left: 20px;
 }
+.welcome__user {
+  color: rgb(66, 169, 238);
+}
+.userName {
+  color: orangered;
+  text-transform: uppercase;
+  margin-left: 10px;
+}
+.user__button {
+  margin-left: 10px;
+  background-color: orangered;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border-color: transparent;
+}

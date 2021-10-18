@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-export default function Login() {
+import { useHistory } from "react-router";
+export default function Login({ callback }) {
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,10 +19,12 @@ export default function Login() {
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    callback({ email, password });
     //   dispatch(logIn({ email, password }));
     e.target.reset();
     setEmail("");
     setPassword("");
+    history.push("/");
   };
   return (
     <form onSubmit={handleFormSubmit} className="form-container">

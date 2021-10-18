@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
 export default function Registration({ callback }) {
+  const history = useHistory();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +29,7 @@ export default function Registration({ callback }) {
     }
 
     callback({ name, email, password });
+    history.push("/");
     // dispatch(register({ name, email, password }));
     e.target.reset();
     setName("");

@@ -18,12 +18,9 @@ export default function MovieDetails() {
   const history = useHistory();
   const location = useLocation();
   const { url } = useRouteMatch();
+
   const [filmsInfo, setFilmsInfo] = useState(null);
   const { movieId } = useParams();
-  console.log(history);
-  console.log(location);
-  console.log(useParams());
-  console.log(useRouteMatch());
 
   useEffect(() => {
     FetchFilmsById(movieId, setFilmsInfo);

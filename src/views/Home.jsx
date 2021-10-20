@@ -10,5 +10,10 @@ export default function Home() {
     FetchPopularFilms(setMovies);
   }, []);
 
-  return <>{movies && <FilmList list={movies} location={location} />}</>;
+  return (
+    <>
+      <h1 className="title-home">Most popular movies right now</h1>
+      {movies && <FilmList list={movies} location={location} />}
+    </>
+  );
 }
